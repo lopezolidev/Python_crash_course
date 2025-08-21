@@ -29,4 +29,19 @@ print(players[::3]) # ['Alba', 'Andrea', 'Sara']
 print(players[:-3: 2]) # ['Alba', 'Ale']
 
 
+print("Here are my first three players: \n")
+for player in players[-4:-1]:
+    print(player)
+
+print("\nOther three players\n")
+for player in players[:3]:
+    print(player)
+
+print("\nOther three players\n")
+for player in players[-(len(players)) + 1 : -2]:
+    print(player)
+
+print("\nOther three players with step of 3\n")
+for player in players[-(len(players)) : -2 : 3]:
+    print(player)
 
