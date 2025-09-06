@@ -1,3 +1,5 @@
+"""A class that can be used to represent a car"""
+
 class Car:
     """A simple attempt to represent a car."""
 
@@ -7,6 +9,7 @@ class Car:
         self.model = model
         self.year = year
         self.odometer_reading = 0 # an attribute we don't pass
+        self.gas_tank = 0
     
     def get_descriptive_name(self):
         """Return a neatly formatted descriptive name."""
@@ -35,21 +38,8 @@ class Car:
         else:
             print("You cannot increment a negative milage!")
 
-my_new_car = Car('audi', 'a4', 2019)
-print(my_new_car.get_descriptive_name())
-# 2019 Audi A4
-
-# my_new_car.odometer_reading = 23 ← updating the value through dot notation
-# my_new_car.read_odometer()
-# # This car has 23 miles on it.
-
-my_new_car.update_odometer(23)
-my_new_car.read_odometer()
-# This car has 23 miles on it. ← controlling odometer value through a method
-
-# my_new_car.update_odometer(12)
-# You can't roll back an odometer!
-
-my_new_car.increment_odometer(120)
-my_new_car.read_odometer()
-# This car has 143 miles on it.
+    def fill_gas_tank(self, litters): # overriding fill_gas_tank method
+        """Method to increase gas tank of the gas car."""
+        self.gas_tank += litters
+        print(f"Now the {self.get_descriptive_name()} has {self.gas_tank} litters"\
+              " of gas")
