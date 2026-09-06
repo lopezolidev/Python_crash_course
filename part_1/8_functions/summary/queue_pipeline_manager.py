@@ -47,4 +47,32 @@ def log_incident(severity, *args, **kwargs):
     return {"severity": severity, "details": list(args), **kwargs}
 
 # Positional arguments MUST come before keyword arguments
-log_incident('Red', 'a', 'b', 'c', 'd', 'e', status='down', node=4)
+log_incident('Red', 'a', 'b', 'c', 'd', 'e', status='down', node=4, level=3)
+
+print("#---------------------------------------------------------------------")
+
+def log_incident2(severity, *positionals, **key_values):
+    if positionals:
+        print(positionals)
+    if key_values:
+        for k, v in key_values.items():
+            print(f"{k}: {v}")
+
+log_incident2(1, 'pegassus', 'fancy_bear', 'lazarus', status="down", node=4)
+
+print("#---------------------------------------------------------------------")
+
+# Un conjunto de datos posicionales (IP y Puerto):
+conexion = ["192.168.1.1", 8080]
+
+# Un diccionario con el resto de la configuración:
+opciones = {"modo_seguro": True, "interfaz": "eth0"}
+
+datos = {"ip": "10.0.0.1", "puerto": 443, "modo_seguro": False, "interfaz": "eth1"}
+
+def configurar_servidor(ip, puerto, modo_seguro, interfaz):
+    print(f"Conectando a {ip}:{puerto}")
+    print(f"Seguridad: {modo_seguro} | Interfaz: {interfaz}")
+
+configurar_servidor(*conexion, **opciones)
+configurar_servidor(**datos)
